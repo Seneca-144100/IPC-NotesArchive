@@ -1,0 +1,11 @@
+1 - define variables for subjects
+1.1 - define vars for sub's avers
+1.2 - define counter and set to zero;
+2 - get marks for subjects and put them 
+       in the variables
+2.1-  add them to the aver-vars
+2.2- counter++;
+3 - ask to continue , if yes, go to step 2
+3.1 - divide each aver to the number of 
+      enteries(counter)
+4 - show the stat results;

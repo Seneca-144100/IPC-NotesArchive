@@ -1,0 +1,7 @@
+The functions for file communication share many common 
+properties with the functions for user communication.  
+Both belong to the same library, follow the same rules 
+for format control and share a common syntax.  
+Nevertheless, the file functions differ from the 
+standard I/O functions in a few respects as shown 
+in the table below.

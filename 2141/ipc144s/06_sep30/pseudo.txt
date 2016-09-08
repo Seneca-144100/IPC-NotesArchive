@@ -1,0 +1,10 @@
+1 - define vars for subs
+1.1 - define vars for submark totals
+1.2 - define a counter and set it to zero
+2 - get values for the sub-vars from user
+3 - add the values to the submark totals
+3.1 - counter++
+4 - ask user to stop? if no, goto 2
+5 - div the submark total to the number of entries (the counter)
+6 - create bar graph from averages and print
+7 - done!

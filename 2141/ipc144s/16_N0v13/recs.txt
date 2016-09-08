@@ -1,0 +1,10 @@
+Jack 34 23
+john 45 3456
+joe 454 2345
+Frank 4544 34
+li 45 456
+Fardad 3 44
+Muhammed 454 465
+Ali 65 546
+bush 343 67
+homer 34 34

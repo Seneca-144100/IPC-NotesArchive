@@ -1,0 +1,1200 @@
+
+
+                  SENECA COLLEGE OF APPLIED ARTS AND TECHNOLOGY
+
+                           SCHOOL OF COMPUTER STUDIES
+
+                                FINAL EXAMINATION
+
+
+        _S_E_M_E_S_T_E_R______________________S_U_B_J_E_C_T________________________C_O_D_E
+
+        FALL 2001      INTRODUCTION TO PROGRAMMING USING C       IPC144
+        _______________________________________________________________
+
+
+                                STUDENT NAME:    ______________________
+
+                                STUDENT  NUMBER: ______________________
+
+
+        DATE:           December 10, 2001
+
+        TIME ALLOWED:   2 Hours
+
+        QUESTIONS:      4 questions worth 20 marks each 
+
+                        TOTAL MARKS     80
+
+        PROFESSOR(S):   Danny Abesdris, Carmen Anghel, John Flores,
+                        Don Frey, Cindy Laurin-Moogk, Catherine Leung,
+                        Peter Liu, Maziar Masoudi, Deb Menken, 
+                        Jennifer Parker, Evan Weaver, Lynda Yearwood
+
+
+        _S_P_E_C_I_A_L_ _I_N_S_T_R_U_C_T_I_O_N_S_:
+
+            Answer all questions in the exam booklet(s) supplied.
+
+            You are allowed one 8.5" x 11" crib sheet, a calculator,
+            and a printed dictionary.
+
+            You _m_u_s_t return these question sheets with
+            your exam booklet(s).
+
+
+        SECTION 8.9 OF SENECA COLLEGE ACADEMIC POLICY:
+
+        _C_H_E_A_T_I_N_G is an offense which will not be tolerated by the
+        College. Such offenses occur when a student violates the
+        procedures governing the administration of examinations, tests
+        or other means of evaluating student achievement in a subject or
+        program.
+
+
+        APPROVED BY: ___________________________
+                     VAL FREEMAN, CHAIR
+                     PRAVEEN MITERA, CHAIR
+
+
+
+        IPC144 --------------------------------------------- Page 1 of 4
+
+
+        Answer all questions in the supplied examination booklet(s). You
+        are allowed one 8.5" x 11" crib sheet for reference, a
+        calculator and a printed dictionary. Return these questions
+        sheets with your exam booklet(s).
+
+        Each question is worth 20 marks, for a total of 80 marks. Read
+        through the entire exam before starting to answer any question.
+        That way, you can choose which questions to answer first in
+        order to maximize your mark.
+
+        Be sure to show your rough work for the walkthrough questions;
+        just an answer without supporting rough work will receive a mark
+        of 0.
+
+        1. Determine the exact output of the following program, showing
+           your rough work.
+
+            #include <stdio.h>
+
+            void foo(int big[], int nb, int small[], int cnt);
+
+            main()
+            {
+                int n[11] = {10, 2, 3, 12, 41, -2, 12, 23, 45, 6, 5},
+                    m[4], i;
+
+                foo(n, 11, m, 3);
+
+                for (i = 0; i < 11; i++)
+                    printf("%3d", n[i]);
+                printf("\n");
+
+                for (i = 0; i < 4; i++)
+                    printf("%9d", m[i]);
+                printf("\n");
+            }
+
+            void foo(int big[], int nb, int small[], int cnt)
+            {
+                int i, j, k = 0;
+
+                for (i = 0; i < nb; i += cnt) {
+                    small[k] = 0;
+                    for (j = 0; j < cnt; j++)
+                        if (i + j < nb)
+                            small[k] += big[i + j];
+                    k++;
+                }
+            }
+
+
+
+
+
+
+
+        INTRO TO PROGRAMMING USING C ------- FALL 2001 FINAL EXAMINATION
+        IPC144 --------------------------------------------- Page 2 of 4
+
+
+        2. Determine the exact output of the following program, showing
+           your rough work.
+
+            #include <stdio.h>
+
+            int foobar(int n1, int n2, int *n3, int *n4);
+            double i2f(int num);
+            int d2o(int num);
+            void m2t(int num);
+
+            main()
+            {
+                printf("The theme is 129\nTry 1:\n");
+                m2t(129);
+                printf("\nTry 2:\n");
+                printf("%.2lf\n", i2f(129));
+                printf("Try 3:\n");
+                printf("%d\n", d2o(129));
+            }
+
+            int foobar(int n1, int n2, int *n3, int *n4)
+            {
+                *n3 = n1 / n2;
+                *n4 = n1 % n2;
+                printf("got %d and %d\n", *n3, *n4);
+                return n1;
+            }
+
+            double i2f(int num)
+            {
+                int n, m;
+                foobar(num, 12, &n, &m);
+                return n + (m / 12.0);
+            }
+
+            int d2o(int num)
+            {
+                int rc = 0, n, m, k = 1;
+
+                while (foobar(num, 8, &n, &m) != 0) {
+                    rc += (k * m);
+                    k *= 10;
+                    num = n;
+                }
+                return rc;
+            }
+
+            void m2t(int num)
+            {
+                int n, m;
+                foobar(num, 60, &n, &m);
+                printf("%d:%02d", n, m);
+            }
+
+
+
+        INTRO TO PROGRAMMING USING C ------- FALL 2001 FINAL EXAMINATION
+        IPC144 --------------------------------------------- Page 3 of 4
+
+
+        3. A real estate company divides the houses it has listed for
+           sale into 20 different categories, depending on the features
+           each house offers. The company has a file, named
+           "houses.dat", each line of which stores the record for one
+           house.
+
+           Each record has four fields, separated from each other by
+           semicolons:
+
+              category  - an integer between 1 and 20
+
+              address   - a character string containing at most 40
+                          characters
+
+              price     - a double value
+
+              highlight - a character string of at most 50 characters,
+                          containing a description of the most striking
+                          feature of the house.
+
+           A couple lines of the file might be:
+
+              1;231 Young Street;546279;Five bathrooms
+              9;554 Blore Street;199999.99;Lots of potential
+
+           There is no limit on the number of records that may appear in
+           the file.
+
+           Write a program that displays the average price in each
+           category for which there are houses listed in the houses.dat
+           file. Do not display the average price for a category if
+           there are no houses listed for that category.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        INTRO TO PROGRAMMING USING C ------- FALL 2001 FINAL EXAMINATION
+        IPC144 --------------------------------------------- Page 4 of 4
+
+
+        4. Write a function
+
+             int insert(char into[], int intosz, char from[], int pos)
+
+           which is passed:
+
+                into   - a char array already containing a string, into
+                         which more characters are going to be inserted.
+
+                intosz - the number of elements that the "into" array
+                         was declared to have when it was created.
+
+                from   - a char array already containing a string, which
+                         is going to be inserted into the "into" array.
+
+                pos    - the starting index of the "into" string where
+                         the characters from the "from" array are going
+                         to be inserted.
+
+           This function inserts the "from" string into the "into"
+           string, starting at index "pos" of the "into" string.
+           Characters from the "into" string originally located at or
+           after index "pos" are moved aside to make room for the new
+           characters. Only as many characters are copied from "from" as
+           will fit without causing the "into" array to become
+           overfilled (see first example below).
+
+           The function returns the number of characters that were
+           copied.
+
+           For example,
+
+                char s[20] = "this is a test";
+                int n;
+                n = insert(s, 20, "fine wine", 10);
+                printf("%d inserted:%s\n", n, s);
+
+           would display
+
+                5 inserted:this is a fine test
+
+           (since s can hold 20 chars, and starts out holding 14
+           characters plus the null byte, it only has room for 5
+           characters from "fine wine") and
+
+                char s1[20] = "too hard";
+                int n1;
+                n1 = insert(s1, 20, "not ", 0);
+                printf("%d inserted:%s\n", n1, s1);
+
+           would display
+
+                4 inserted:not too hard
+
+           (since all 4 characters of the string "not " will fit in s1).
+
+        INTRO TO PROGRAMMING USING C ------- FALL 2001 FINAL EXAMINATION
+
+                  SENECA COLLEGE OF APPLIED ARTS AND TECHNOLOGY
+
+                           SCHOOL OF COMPUTER STUDIES
+
+                                FINAL EXAMINATION
+
+
+        _S_E_M_E_S_T_E_R______________________S_U_B_J_E_C_T________________________C_O_D_E
+
+        Fall 2001      Introduction to Programming Using C       IPC144
+        _______________________________________________________________
+
+
+                                STUDENT NAME:    ______________________
+
+                                STUDENT  NUMBER: ______________________
+
+
+        DATE:           December 10, 2001
+
+        TIME ALLOWED:   2 Hours
+
+        QUESTIONS:      4 questions worth 20 marks each 
+
+                        TOTAL MARKS     80
+
+        PROFESSOR(S):   Danny Abesdris, Carmen Anghel, John Flores,
+                        Don Frey, Cindy Laurin-Moogk, Catherine Leung,
+                        Peter Liu, Maziar Masoudi, Deb Menken, 
+                        Jennifer Parker, Evan Weaver, Lynda Yearwood
+
+
+        _S_P_E_C_I_A_L_ _I_N_S_T_R_U_C_T_I_O_N_S_:
+
+            Answer all questions in the exam booklet(s) supplied.
+
+            You are allowed one 8.5" x 11" crib sheet, a calculator,
+            and a printed dictionary.
+
+            You _m_u_s_t return these question sheets with
+            your exam booklet(s).
+
+
+        SECTION 8.9 OF SENECA COLLEGE ACADEMIC POLICY:
+
+        _C_H_E_A_T_I_N_G is an offense which will not be tolerated by the
+        College. Such offenses occur when a student violates the
+        procedures governing the administration of examinations, tests
+        or other means of evaluating student achievement in a subject or
+        program.
+
+
+        APPROVED BY: ___________________________
+                     VAL FREEMAN, CHAIR
+                     PRAVEEN MITERA, CHAIR
+
+
+
+
+        IPC144 --------------------------------------------- Page 1 of 4
+
+
+        Answer all questions in the supplied examination booklet(s). You
+        are allowed one 8.5" x 11" crib sheet for reference, a
+        calculator and a printed dictionary. Return these questions
+        sheets with your exam booklet(s).
+
+        Each question is worth 20 marks, for a total of 80 marks. Read
+        through the entire exam before starting to answer any question.
+        That way, you can choose which questions to answer first in
+        order to maximize your mark.
+
+        Be sure to show your rough work for the walkthrough questions;
+        just an answer without supporting rough work will receive a mark
+        of 0.
+
+        1. Determine the exact output of the following program, showing
+           your rough work.
+
+            #include <stdio.h>
+
+            void foo(int big[], int nb, int small[], int cnt);
+
+            main()
+            {
+                int n[11] = {10, 2, 3, 12, 41, -2, 12, 23, 45, 6, 5},
+                    m[3], i;
+
+                foo(n, 11, m, 4);
+
+                for (i = 0; i < 11; i++)
+                    printf("%3d", n[i]);
+                printf("\n");
+
+                for (i = 0; i < 3; i++)
+                    printf("%12d", m[i]);
+                printf("\n");
+            }
+
+            void foo(int big[], int nb, int small[], int cnt)
+            {
+                int i, j, k = 0;
+
+                for (i = 0; i < nb; i += cnt) {
+                    small[k] = 0;
+                    for (j = 0; j < cnt; j++)
+                        if (i + j < nb)
+                            small[k] += big[i + j];
+                    k++;
+                }
+            }
+
+
+
+
+
+
+
+        Intro to Programming Using C ------- Fall 2001 Final Examination
+        IPC144 --------------------------------------------- Page 2 of 4
+
+
+        2. Determine the exact output of the following program, showing
+           your rough work.
+
+            #include <stdio.h>
+
+            int foobar(int n1, int n2, int *n3, int *n4);
+            double i2f(int num);
+            int d2o(int num);
+            void m2t(int num);
+
+            main()
+            {
+                printf("The theme is 135\nTry 1:\n");
+                m2t(135);
+                printf("\nTry 2:\n");
+                printf("%.2lf\n", i2f(135));
+                printf("Try 3:\n");
+                printf("%d\n", d2o(135));
+            }
+
+            int foobar(int n1, int n2, int *n3, int *n4)
+            {
+                *n3 = n1 / n2;
+                *n4 = n1 % n2;
+                printf("have %d and %d\n", *n3, *n4);
+                return n1;
+            }
+
+            double i2f(int num)
+            {
+                int n, m;
+                foobar(num, 12, &n, &m);
+                return n + (m / 12.0);
+            }
+
+            int d2o(int num)
+            {
+                int rc = 0, n, m, k = 1;
+
+                while (foobar(num, 8, &n, &m) != 0) {
+                    rc += (k * m);
+                    k *= 10;
+                    num = n;
+                }
+                return rc;
+            }
+
+            void m2t(int num)
+            {
+                int n, m;
+                foobar(num, 60, &n, &m);
+                printf("%d:%02d", n, m);
+            }
+
+
+
+        Intro to Programming Using C ------- Fall 2001 Final Examination
+        IPC144 --------------------------------------------- Page 3 of 4
+
+
+        3. A car magazine divides the cars it reviews into 20 different
+           categories, depending on the price, size and features of each
+           car. The magazine keeps a file, named "reviews.dat", each
+           line of which stores a record for one car.
+
+           Each record has four fields, separated from each other by
+           semicolons:
+
+              category - an integer between 1 and 20
+
+              model    - a character string containing at most 40
+                         characters
+
+              rating   - a double value, between 0 and 100, where 0 is
+                         very bad, and 100 is perfect.
+
+              summary  - a character string of at most 50 characters,
+                         containing a very brief comment about the car.
+
+           A couple lines of the file might be:
+
+              1;MBW 440 Coupe;87.5;Fun but expensive
+              9;Fjord Fjokus;72;Good car, hard to pronounce
+
+           There is no limit on the number of records that may appear in
+           the file.
+
+           Write a program that displays the average rating in each
+           category for which there are ratings in the reviews.dat file.
+           Do not display the average rating for a category if there are
+           no cars listed for that category.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Intro to Programming Using C ------- Fall 2001 Final Examination
+        IPC144 --------------------------------------------- Page 4 of 4
+
+
+        4. Write a function
+
+             int insstr(char into[], int intosz, int pos, char from[])
+
+           which is passed:
+
+                into   - a char array already containing a string, into
+                         which more characters are going to be inserted.
+
+                intosz - the number of elements that the "into" array
+                         was declared to have when it was created.
+
+                pos    - the starting index of the "into" string where
+                         the characters from the "from" array are going
+                         to be inserted.
+
+                from   - a char array already containing a string, which
+                         is going to be inserted into the "into" array.
+
+           This function inserts the "from" string into the "into"
+           string, starting at index "pos" of the "into" string.
+           Characters from the "into" string originally located at or
+           after index "pos" are moved aside to make room for the new
+           characters. Only as many characters are copied from "from" as
+           will fit without causing the "into" array to become
+           overfilled (see first example below).
+
+           The function returns the number of characters that were
+           copied.
+
+           For example,
+
+                char s[20] = "this is a test";
+                int n;
+                n = insstr(s, 20, 10, "fine wine");
+                printf("%d inserted:%s\n", n, s);
+
+           would display
+
+                5 inserted:this is a fine test
+
+           (since s can hold 20 chars, and starts out holding 14
+           characters plus the null byte, it only has room for 5
+           characters from "fine wine") and
+
+                char s1[20] = "too hard";
+                int n1;
+                n1 = insstr(s1, 20, 0, "not ");
+                printf("%d inserted:%s\n", n1, s1);
+
+           would display
+
+                4 inserted:not too hard
+
+           (since all 4 characters of the string "not " will fit in s1).
+
+        Intro to Programming Using C ------- Fall 2001 Final Examination
+
+                  SENECA COLLEGE OF APPLIED ARTS AND TECHNOLOGY
+
+                           SCHOOL OF COMPUTER STUDIES
+
+                                FINAL EXAMINATION
+
+
+        _S_E_M_E_S_T_E_R______________________S_U_B_J_E_C_T________________________C_O_D_E
+
+        FALL 2001      Introduction to Programming Using C       IPC144
+        _______________________________________________________________
+
+
+                                STUDENT NAME:    ______________________
+
+                                STUDENT  NUMBER: ______________________
+
+
+        DATE:           December 10, 2001
+
+        TIME ALLOWED:   2 Hours
+
+        QUESTIONS:      4 questions worth 20 marks each 
+
+                        TOTAL MARKS     80
+
+        PROFESSOR(S):   Danny Abesdris, Carmen Anghel, John Flores,
+                        Don Frey, Cindy Laurin-Moogk, Catherine Leung,
+                        Peter Liu, Maziar Masoudi, Deb Menken, 
+                        Jennifer Parker, Evan Weaver, Lynda Yearwood
+
+
+        _S_P_E_C_I_A_L_ _I_N_S_T_R_U_C_T_I_O_N_S_:
+
+            Answer all questions in the exam booklet(s) supplied.
+
+            You are allowed one 8.5" x 11" crib sheet, a calculator,
+            and a printed dictionary.
+
+            You _m_u_s_t return these question sheets with
+            your exam booklet(s).
+
+
+        SECTION 8.9 OF SENECA COLLEGE ACADEMIC POLICY:
+
+        _C_H_E_A_T_I_N_G is an offense which will not be tolerated by the
+        College. Such offenses occur when a student violates the
+        procedures governing the administration of examinations, tests
+        or other means of evaluating student achievement in a subject or
+        program.
+
+
+        APPROVED BY: ___________________________
+                     VAL FREEMAN, CHAIR
+                     PRAVEEN MITERA, CHAIR
+
+
+
+
+        IPC144 --------------------------------------------- Page 1 of 4
+
+
+        Answer all questions in the supplied examination booklet(s). You
+        are allowed one 8.5" x 11" crib sheet for reference, a
+        calculator and a printed dictionary. Return these questions
+        sheets with your exam booklet(s).
+
+        Each question is worth 20 marks, for a total of 80 marks. Read
+        through the entire exam before starting to answer any question.
+        That way, you can choose which questions to answer first in
+        order to maximize your mark.
+
+        Be sure to show your rough work for the walkthrough questions;
+        just an answer without supporting rough work will receive a mark
+        of 0.
+
+        1. Determine the exact output of the following program, showing
+           your rough work.
+
+            #include <stdio.h>
+
+            void foo(int big[], int nb, int small[], int cnt);
+
+            main()
+            {
+                int n[10] = {20, 2, 3, 12, 21, -2, 12, 32, 65, 4},
+                    m[4], i;
+
+                foo(n, 10, m, 3);
+
+                for (i = 0; i < 10; i++)
+                    printf("%3d", n[i]);
+                printf("\n");
+
+                for (i = 0; i < 4; i++)
+                    printf("%9d", m[i]);
+                printf("\n");
+            }
+
+            void foo(int big[], int nb, int small[], int cnt)
+            {
+                int i, j, k = 0;
+
+                for (i = 0; i < nb; i += cnt) {
+                    small[k] = 0;
+                    for (j = 0; j < cnt; j++)
+                        if (i + j < nb)
+                            small[k] += big[i + j];
+                    k++;
+                }
+            }
+
+
+
+
+
+
+
+        Intro to Programming Using C ------- FALL 2001 FINAL EXAMINATION
+        IPC144 --------------------------------------------- Page 2 of 4
+
+
+        2. Determine the exact output of the following program, showing
+           your rough work.
+
+            #include <stdio.h>
+
+            int foobar(int n1, int n2, int *n3, int *n4);
+            double i2f(int num);
+            int d2o(int num);
+            void m2t(int num);
+
+            main()
+            {
+                printf("The magic number is 123\nFirst:\n");
+                m2t(123);
+                printf("\nSecond:\n");
+                printf("%.2lf\n", i2f(123));
+                printf("Third:\n");
+                printf("%d\n", d2o(123));
+            }
+
+            int foobar(int n1, int n2, int *n3, int *n4)
+            {
+                *n3 = n1 / n2;
+                *n4 = n1 % n2;
+                printf("got %d and %d\n", *n3, *n4);
+                return n1;
+            }
+
+            double i2f(int num)
+            {
+                int n, m;
+                foobar(num, 12, &n, &m);
+                return n + (m / 12.0);
+            }
+
+            int d2o(int num)
+            {
+                int rc = 0, n, m, k = 1;
+
+                while (foobar(num, 8, &n, &m) != 0) {
+                    rc += (k * m);
+                    k *= 10;
+                    num = n;
+                }
+                return rc;
+            }
+
+            void m2t(int num)
+            {
+                int n, m;
+                foobar(num, 60, &n, &m);
+                printf("%d:%02d", n, m);
+            }
+
+
+
+        Intro to Programming Using C ------- FALL 2001 FINAL EXAMINATION
+        IPC144 --------------------------------------------- Page 3 of 4
+
+
+        3. A real estate company divides the houses it has listed for
+           sale into 20 different categories, depending on the features
+           each house offers. The company has a file, named
+           "houses.dat", each line of which stores the record for one
+           house.
+
+           Each record has four fields, separated from each other by
+           semicolons:
+
+              category  - an integer between 1 and 20
+
+              address   - a character string containing at most 40
+                          characters
+
+              price     - a double value
+
+              highlight - a character string of at most 50 characters,
+                          containing a description of the most striking
+                          feature of the house.
+
+           A couple lines of the file might be:
+
+              1;231 Young Street;546279;Five bathrooms
+              9;554 Blore Street;199999.99;Lots of potential
+
+           There is no limit on the number of records that may appear in
+           the file.
+
+           Write a program that displays the average price in each
+           category for which there are houses listed in the houses.dat
+           file. Do not display the average price for a category if
+           there are no houses listed for that category.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Intro to Programming Using C ------- FALL 2001 FINAL EXAMINATION
+        IPC144 --------------------------------------------- Page 4 of 4
+
+
+        4. Write a function
+
+             int insstr(char into[], int intosz, int pos, char from[])
+
+           which is passed:
+
+                into   - a char array already containing a string, into
+                         which more characters are going to be inserted.
+
+                intosz - the number of elements that the "into" array
+                         was declared to have when it was created.
+
+                pos    - the starting index of the "into" string where
+                         the characters from the "from" array are going
+                         to be inserted.
+
+                from   - a char array already containing a string, which
+                         is going to be inserted into the "into" array.
+
+           This function inserts the "from" string into the "into"
+           string, starting at index "pos" of the "into" string.
+           Characters from the "into" string originally located at or
+           after index "pos" are moved aside to make room for the new
+           characters. Only as many characters are copied from "from" as
+           will fit without causing the "into" array to become
+           overfilled (see first example below).
+
+           The function returns the number of characters that were
+           copied.
+
+           For example,
+
+                char s[20] = "this is a test";
+                int n;
+                n = insstr(s, 20, 10, "fine wine");
+                printf("%d inserted:%s\n", n, s);
+
+           would display
+
+                5 inserted:this is a fine test
+
+           (since s can hold 20 chars, and starts out holding 14
+           characters plus the null byte, it only has room for 5
+           characters from "fine wine") and
+
+                char s1[20] = "too hard";
+                int n1;
+                n1 = insstr(s1, 20, 0, "not ");
+                printf("%d inserted:%s\n", n1, s1);
+
+           would display
+
+                4 inserted:not too hard
+
+           (since all 4 characters of the string "not " will fit in s1).
+
+        Intro to Programming Using C ------- FALL 2001 FINAL EXAMINATION
+
+                  SENECA COLLEGE OF APPLIED ARTS AND TECHNOLOGY
+
+                           SCHOOL OF COMPUTER STUDIES
+
+                                FINAL EXAMINATION
+
+
+        _S_E_M_E_S_T_E_R______________________S_U_B_J_E_C_T________________________C_O_D_E
+
+        Fall 2001      INTRODUCTION TO PROGRAMMING USING C       IPC144
+        _______________________________________________________________
+
+
+                                STUDENT NAME:    ______________________
+
+                                STUDENT  NUMBER: ______________________
+
+
+        DATE:           December 10, 2001
+
+        TIME ALLOWED:   2 Hours
+
+        QUESTIONS:      4 questions worth 20 marks each 
+
+                        TOTAL MARKS     80
+
+        PROFESSOR(S):   Danny Abesdris, Carmen Anghel, John Flores,
+                        Don Frey, Cindy Laurin-Moogk, Catherine Leung,
+                        Peter Liu, Maziar Masoudi, Deb Menken, 
+                        Jennifer Parker, Evan Weaver, Lynda Yearwood
+
+
+        _S_P_E_C_I_A_L_ _I_N_S_T_R_U_C_T_I_O_N_S_:
+
+            Answer all questions in the exam booklet(s) supplied.
+
+            You are allowed one 8.5" x 11" crib sheet, a calculator,
+            and a printed dictionary.
+
+            You _m_u_s_t return these question sheets with
+            your exam booklet(s).
+
+
+        SECTION 8.9 OF SENECA COLLEGE ACADEMIC POLICY:
+
+        _C_H_E_A_T_I_N_G is an offense which will not be tolerated by the
+        College. Such offenses occur when a student violates the
+        procedures governing the administration of examinations, tests
+        or other means of evaluating student achievement in a subject or
+        program.
+
+
+        APPROVED BY: ___________________________
+                     VAL FREEMAN, CHAIR
+                     PRAVEEN MITERA, CHAIR
+
+
+
+
+        IPC144 --------------------------------------------- Page 1 of 4
+
+
+        Answer all questions in the supplied examination booklet(s). You
+        are allowed one 8.5" x 11" crib sheet for reference, a
+        calculator and a printed dictionary. Return these questions
+        sheets with your exam booklet(s).
+
+        Each question is worth 20 marks, for a total of 80 marks. Read
+        through the entire exam before starting to answer any question.
+        That way, you can choose which questions to answer first in
+        order to maximize your mark.
+
+        Be sure to show your rough work for the walkthrough questions;
+        just an answer without supporting rough work will receive a mark
+        of 0.
+
+        1. Determine the exact output of the following program, showing
+           your rough work.
+
+            #include <stdio.h>
+
+            void foo(int big[], int nb, int small[], int cnt);
+
+            main()
+            {
+                int n[10] = {10, 2, 3, 12, 41, -2, 12, 45, 6, 5},
+                    m[3], i;
+
+                foo(n, 10, m, 4);
+
+                for (i = 0; i < 10; i++)
+                    printf("%3d", n[i]);
+                printf("\n");
+
+                for (i = 0; i < 3; i++)
+                    printf("%12d", m[i]);
+                printf("\n");
+            }
+
+            void foo(int big[], int nb, int small[], int cnt)
+            {
+                int i, j, k = 0;
+
+                for (i = 0; i < nb; i += cnt) {
+                    small[k] = 0;
+                    for (j = 0; j < cnt; j++)
+                        if (i + j < nb)
+                            small[k] += big[i + j];
+                    k++;
+                }
+            }
+
+
+
+
+
+
+
+        INTRO TO PROGRAMMING USING C ------- Fall 2001 Final Examination
+        IPC144 --------------------------------------------- Page 2 of 4
+
+
+        2. Determine the exact output of the following program, showing
+           your rough work.
+
+            #include <stdio.h>
+
+            int foobar(int n1, int n2, int *n3, int *n4);
+            double i2f(int num);
+            int d2o(int num);
+            void m2t(int num);
+
+            main()
+            {
+                printf("Let's try 126\ntest 1:\n");
+                m2t(126);
+                printf("\ntest 2:\n");
+                printf("%.2lf\n", i2f(126));
+                printf("test 3:\n");
+                printf("%d\n", d2o(126));
+            }
+
+            int foobar(int n1, int n2, int *n3, int *n4)
+            {
+                *n3 = n1 / n2;
+                *n4 = n1 % n2;
+                printf("computed %d and %d\n", *n3, *n4);
+                return n1;
+            }
+
+            double i2f(int num)
+            {
+                int n, m;
+                foobar(num, 12, &n, &m);
+                return n + (m / 12.0);
+            }
+
+            int d2o(int num)
+            {
+                int rc = 0, n, m, k = 1;
+
+                while (foobar(num, 8, &n, &m) != 0) {
+                    rc += (k * m);
+                    k *= 10;
+                    num = n;
+                }
+                return rc;
+            }
+
+            void m2t(int num)
+            {
+                int n, m;
+                foobar(num, 60, &n, &m);
+                printf("%d:%02d", n, m);
+            }
+
+
+
+        INTRO TO PROGRAMMING USING C ------- Fall 2001 Final Examination
+        IPC144 --------------------------------------------- Page 3 of 4
+
+
+        3. A car magazine divides the cars it reviews into 20 different
+           categories, depending on the price, size and features of each
+           car. The magazine keeps a file, named "reviews.dat", each
+           line of which stores a record for one car.
+
+           Each record has four fields, separated from each other by
+           semicolons:
+
+              category - an integer between 1 and 20
+
+              model    - a character string containing at most 40
+                         characters
+
+              rating   - a double value, between 0 and 100, where 0 is
+                         very bad, and 100 is perfect.
+
+              summary  - a character string of at most 50 characters,
+                         containing a very brief comment about the car.
+
+           A couple lines of the file might be:
+
+              1;MBW 440 Coupe;87.5;Fun but expensive
+              9;Fjord Fjokus;72;Good car, hard to pronounce
+
+           There is no limit on the number of records that may appear in
+           the file.
+
+           Write a program that displays the average rating in each
+           category for which there are ratings in the reviews.dat file.
+           Do not display the average rating for a category if there are
+           no cars listed for that category.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        INTRO TO PROGRAMMING USING C ------- Fall 2001 Final Examination
+        IPC144 --------------------------------------------- Page 4 of 4
+
+
+        4. Write a function
+
+             int insert(char into[], int intosz, char from[], int pos)
+
+           which is passed:
+
+                into   - a char array already containing a string, into
+                         which more characters are going to be inserted.
+
+                intosz - the number of elements that the "into" array
+                         was declared to have when it was created.
+
+                from   - a char array already containing a string, which
+                         is going to be inserted into the "into" array.
+
+                pos    - the starting index of the "into" string where
+                         the characters from the "from" array are going
+                         to be inserted.
+
+           This function inserts the "from" string into the "into"
+           string, starting at index "pos" of the "into" string.
+           Characters from the "into" string originally located at or
+           after index "pos" are moved aside to make room for the new
+           characters. Only as many characters are copied from "from" as
+           will fit without causing the "into" array to become
+           overfilled (see first example below).
+
+           The function returns the number of characters that were
+           copied.
+
+           For example,
+
+                char s[20] = "this is a test";
+                int n;
+                n = insert(s, 20, "fine wine", 10);
+                printf("%d inserted:%s\n", n, s);
+
+           would display
+
+                5 inserted:this is a fine test
+
+           (since s can hold 20 chars, and starts out holding 14
+           characters plus the null byte, it only has room for 5
+           characters from "fine wine") and
+
+                char s1[20] = "too hard";
+                int n1;
+                n1 = insert(s1, 20, "not ", 0);
+                printf("%d inserted:%s\n", n1, s1);
+
+           would display
+
+                4 inserted:not too hard
+
+           (since all 4 characters of the string "not " will fit in s1).
+
+        INTRO TO PROGRAMMING USING C ------- Fall 2001 Final Examination

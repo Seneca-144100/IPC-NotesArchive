@@ -1,0 +1,57 @@
+
+
+     Introduction to Programming Using C        Name ______________________
+     IPC144D - Test #2
+
+     Answer all questions in the space provided. There is  a  total  of  20
+     marks.
+
+     1. Determine the exact output of the following program: [8 marks]
+
+         #include <stdio.h>
+         double foo(int a, char *p);
+         main()
+         {
+             double x;
+             int i;
+             char c = 'a';
+
+             for (i = 0; i < 4; i++)
+                     x = foo(i, &c);
+             printf("one:%c two:%.1lf three:%d\n", c, x, i);
+         }
+         double foo(int a, char *p)
+         {
+             double d;
+
+             printf("%c ", *p);
+             switch (*p) {
+                     case 'a':
+                             *p = 'c';
+                             d = a * 0.5;
+                             break;
+                     case 'b':
+                             *p = 'a';
+                             d = a * 1.5;
+                             break;
+                     case 'c':
+                             *p = 'b';
+                             d = a * 0.1;
+                             break;
+                     default:
+                             d = 1.7;
+             }
+             printf("%.1lf\n", d);
+             return d;
+         }
+
+
+     2. Write a function that is passed (1) an array of doubles and (2)  an
+        int containing the number of elements in  the  array,  and  has  no
+        return value. the function should increase (by 15%)  every  element
+        of the array that is 4.0  or  larger,  leaving  untouched  all  the
+        elements that are smaller than 4.0. [8 marks]
+
+     3. Draw a flowchart for the function  you  wrote  in  question  2.  [4
+        marks]
+

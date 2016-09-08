@@ -1,0 +1,10 @@
+275,Fresh Fish,12.34,0
+386,Soft kleenex,45.67,1
+240,Ultra Tide,24.34,1
+916,Red Apples,123.45,0
+385,Magic Broom,456.78,1
+495,Liquid Soap,546.02,1
+316,Chocolate Cookies,78.34,1
+355,Organic Milk,24.34,0
+846,Dark Chocolate,123.45,1
+359,Organic Banana,99.99,0

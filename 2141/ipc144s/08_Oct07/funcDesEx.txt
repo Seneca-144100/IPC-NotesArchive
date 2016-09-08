@@ -1,0 +1,57 @@
+//     finds the minimum of two integers and returns it
+int findmin(int fstval, int secVal);
+
+//  gets the SIN number of a person, returns credit score
+
+double retCred(long sin);
+
+// gets the SIN number from the user and returns credit score
+
+double credCheck();
+
+// gets the lic plate of a car from the user and 
+// returns if the owner has tickets
+
+int ownerTickets();
+
+//  gets number of childern and salary in Dollars and then asks 
+// the user for the age
+// and returns the benefit in Dollar and Cents amout
+// 
+double benefit(int child, double salary);
+
+// recives location of three integers and sorts them in desc order
+void sortOrder(int* first, int* sec, int* third);
+
+// receives two doubles and swaps the values if the frist one 
+// is larger than sencond and returns if they are swapped
+
+int numberSwap(double* first, double* second)
+
+// recieves a double, and an int, divids the double by int, returns the 
+// result and the remainder
+void divDouble(double* res, int* rem, double num, int div);
+
+
+
+
+
+// as requested
+int numberSwap(double* fptr, double* sptr){
+   double 
+      buf;
+   int
+      swapped = 0;
+   if (*fptr > *sptr){
+      buf = *fptr;
+      *fptr = *sptr;
+      *sptr = buf;
+      swapped = 1;
+   }
+   return swapped;
+}
+
+void divDouble(int* res, int* rem, double num, int div){
+   *res = (int)num / div;
+   *rem = (int)num % div;
+}

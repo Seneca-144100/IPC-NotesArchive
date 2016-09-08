@@ -1,0 +1,10 @@
+Information stored on secondary memory may have a record or tabular 
+structure.  That is, data may be organized into distinct records.  In 
+the case of a tabular structure, each record may consist of a 
+predefined number of fields.  Both methods are quite common with files. 
+
+This chapter describes how to identify records in a file, how to 
+identify fields in a record and how to retrieve tabular data.  The 
+chapter also addresses cases where data needs to be truncated to fit 
+in the limited memory that is available to a program. 
+
