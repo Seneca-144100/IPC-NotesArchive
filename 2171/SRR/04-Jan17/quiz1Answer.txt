@@ -1,0 +1,7 @@
+5- CPU is the major processor of a computer, all that is done and is executed is processed with CPU, it stands for Central Processing Unit
+6- 8, 255
+7- printf(“John\nDoe\n”);
+8- printf(“Please enter you age: “);
+    scanf(“%d”, &age);
+9-int, long (integers) float, double (floating point)
+10- d = (2) + (2 * 3) = 8
