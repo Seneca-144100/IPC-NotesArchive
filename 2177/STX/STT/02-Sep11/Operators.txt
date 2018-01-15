@@ -1,0 +1,5 @@
+Res <- LeftOperand @ RightOperand
+Res <- @Operand
+
+I = 100
+I = I + 1

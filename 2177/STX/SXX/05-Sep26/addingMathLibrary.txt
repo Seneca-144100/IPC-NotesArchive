@@ -1,0 +1,2 @@
+
+// gcc whatever    -lm  // if using math.h on matrix.

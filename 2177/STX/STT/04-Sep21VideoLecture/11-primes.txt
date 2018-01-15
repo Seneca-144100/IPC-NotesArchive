@@ -1,0 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main(void) {
+  int num;
+  int cnt;
+  int isprime;
+  for (num = 999999999; 1; num+=2) {
+    isprime = 1;
+    for (cnt = 2; cnt <= num / 2 ; cnt++) {
+      if (num % cnt == 0) {
+        isprime = 0;
+      }
+    }
+    if(isprime)
+      printf("%d\n", num);
+  }
+  return 0;
+}
