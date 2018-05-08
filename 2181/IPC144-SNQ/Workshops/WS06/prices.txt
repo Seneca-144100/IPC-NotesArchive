@@ -1,0 +1,14 @@
+125228,7up 12 pack,6.49
+127913,Banana,0.44
+123456,Beefsteak Pie,5.29
+126458,Blueberries,3.99
+124567,Butter,4.56
+123815,Chicken Alfredo,4.49
+123512,Coke 12 Pack,6.69
+122564,Curry Checken,4.79
+125656,Honey,12.99
+123695,Honeydew Melon,5.99
+121679,Jack's Apple Juice
+126539,Joe Org Chips
+129462,Kiwifruit,0.50
+124297,Lays Chips S&V,3.69

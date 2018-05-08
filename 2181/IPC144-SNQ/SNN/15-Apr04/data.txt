@@ -1,0 +1,24 @@
+125228,7up 12 pack,6.49
+127913,Banana,0.44
+123456,Beefsteak Pie,5.29
+126458,Blueberries,3.99
+124567,Butter,4.56
+123815,Chicken Alfredo,4.49
+123512,Coke 12 Pack,6.69
+122564,Curry Checken,4.79
+125656,Honey,12.99
+123695,Honeydew Melon,5.99
+121679,Jack's Apple Juice,3.56
+126539,Joe Org Chips,2.05
+129462,Kiwifruit,0.50
+124297,Lays Chips S&V,3.69
+121234,Milk,3.99
+123461,Nestea 12 Pack,7.29
+123456,Paper Cups,5.99
+121313,Paper Tissue,1.22
+121627,Peaches,1.44
+123214,Pomegranate,2.50
+121596,Royal Gala Apples,4.42
+121212,Salted Butter,5.99
+129852,Seedless Grapes,10.56
+129318,Tide Detergent,16.99

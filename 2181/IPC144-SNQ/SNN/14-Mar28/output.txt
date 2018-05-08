@@ -1,0 +1,10 @@
+Row |    Fullname                              |subs| GPA
+----+------------------------------------------+----+----
+  1 | Homer Simpson                            |  3 | 3.4
+  2 | Ned Flanders                             |  4 | 4.0
+  3 | Selma Bouvier                            |  3 | 3.0
+  4 | Apu Nahasapeemapetilon                   |  2 | 4.0
+  5 | Barney Gumble                            |  5 | 3.1
+  6 | Lenny Leonard                            |  4 | 2.5
+  7 | Lisa Simpson                             |  5 | 3.2
+  8 | Mary Bailey                              |  4 | 3.9
