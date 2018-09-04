@@ -1,0 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main(void) {
+  int num;
+  int a = 10;
+  int b = 6;
+  num = 10;
+  num = num + 1;
+  printf("num is: %d\n", num);
+  num = a + b;
+  printf("num is: %d\n", num);
+  num = a - b;
+  printf("num is: %d\n", num);
+  num = a * b;
+  printf("num is: %d\n", num);
+  num = a / b;
+  printf("num is: %d\n", num);
+  num = a % b;
+  printf("num is: %d\n", num);
+
+
+
+  return 0;
+}
