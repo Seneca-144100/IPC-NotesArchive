@@ -1,0 +1,6 @@
+Apple Pie,12,12,2,1.2
+Coke,12,8,12,34.5
+Shoe,4,12,5,0.34
+Candy Cane,2,5,5,1
+Pants,12,12,8, 5.5
+Doughnuts,10,14,3,3

@@ -1,0 +1,11 @@
+  for (i = 1; i <= 10; i += 1) {
+    a[i - 1] = i * 10;
+  }
+  for (i = 0; i < 10; i++) {
+    a[i] = (i+1) * 10;
+  }
+
+  - get student marks
+  - find best and worst score and who got it
+  - what was the average of the marks in class
+  - display the above listing all the marks

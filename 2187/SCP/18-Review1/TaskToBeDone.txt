@@ -1,0 +1,11 @@
+// Name         ( first and last)
+// cell number  (area, number)
+// rate  // price per minute    (0.05, 5)
+// plan price //   (0, 200)999.99
+// free minutes // (unlimited, 200)
+
+// 1- add account
+// 2- remove an account
+// 3- Modify an account
+// 4- list all the accounts
+// 5- list monthly usage report and payment info
